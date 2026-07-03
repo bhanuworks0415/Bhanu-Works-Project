@@ -1,26 +1,233 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg-primary: #FAFAF9;    /* Pearl White */
+  --color-bg-secondary: #F4F4F3;  /* Cloud Gray / Off White */
+  --color-bg-tertiary: #EAEAE9;   /* Light Stone */
+  
+  --color-border-muted: #E2E2E3;  /* Clean light border */
+  --color-border-active: #C1C1C2; /* Active gray border */
+  
+  --color-text-primary: #111111;    /* Solid Charcoal Black for primary texts */
+  --color-text-secondary: #111111;  /* Crisp Black for secondary information */
+  --color-text-muted: #333333;      /* Dark charcoal for muted information */
+
+  --color-accent-primary: #246B3A;   /* Heritage / Wimbledon Green — exact match */
+  --color-accent-hover: #1d5830;     /* Slightly Deeper Heritage Green */
+  --color-accent-gold: #4ade80;      /* Light Accent Green */
+  
+  --color-success: #246B3A; /* Heritage Green success */
+  --color-warning: #4ade80; /* Light Accent warning */
+  --color-error: #B5655D;   /* Terracotta red */
+
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-display: var(--font-serif), Georgia, serif;
+  --font-mono: var(--font-mono), monospace;
+  
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s infinite ease-out;
+  --animate-shimmer: shimmer-swipe 2s infinite linear;
+}
+
+/* ==========================================================================
+   BHANUWORKS PREMIUM STYLING UTILITIES
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FAFAF9;
+  --foreground: #111111;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.01em;
+}
+
+/* Direct Green/Black Typography Rule: Headings in Green, Information in Black */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-accent-primary) !important;
+}
+
+/* Hero-specific override — allows hero h1 to stay dark/black */
+.hero-title-dark {
+  color: #111111 !important;
+}
+.hero-title-accent {
+  color: var(--color-accent-primary) !important;
+}
+
+p, span, li, label, div, select, textarea, input {
+  color: var(--color-text-secondary);
+}
+
+/* Override sections tags & interactive icons to green */
+.section-tag, [class*="section-tag"] {
+  color: var(--color-accent-primary) !important;
+  border-color: rgba(36, 107, 58, 0.2) !important;
+  background-color: rgba(36, 107, 58, 0.07) !important;
+}
+
+.text-accent-gold {
+  color: var(--color-accent-gold) !important;
+}
+
+.text-success {
+  color: var(--color-accent-primary) !important;
+}
+
+/* Subtle editorial paper noise overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-muted);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-active);
+}
+
+/* Ambient Backlight Glow - Subtle Sage/Green gradient */
+.hero-glow-element {
+  background: radial-gradient(circle at 50% 50%, rgba(36, 107, 58, 0.07) 0%, transparent 60%);
+}
+
+/* Hero Gradient: Green Combination */
+.hero-gradient-text {
+  background: linear-gradient(135deg, #246B3A 30%, #3da85f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Frosted Glassmorphism Refinement - Sage / Sand tint */
+.glass-panel {
+  background: rgba(250, 250, 249, 0.85);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(36, 107, 58, 0.12);
+}
+
+/* Premium Card Borders & Localized Glow Trigger */
+.card-glow-effect {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-muted);
+}
+.card-glow-effect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(36, 107, 58, 0.08), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.card-glow-effect:hover {
+  border-color: var(--color-border-active);
+  box-shadow: 0 20px 40px -15px rgba(17, 17, 17, 0.04), 0 0 30px rgba(36, 107, 58, 0.07);
+  transform: translateY(-2px);
+}
+.card-glow-effect:hover::before {
+  background: linear-gradient(180deg, rgba(36, 107, 58, 0.2), transparent);
+}
+
+/* Shimmer Highlight Button Overlay */
+.btn-shimmer-trigger {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer-trigger::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(36, 107, 58, 0.05) 50%,
+    transparent 55%
+  );
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-shimmer-trigger:hover::after {
+  transform: translate(100%, 100%) rotate(45deg);
+}
+
+/* Skeleton Loading State Utility */
+.skeleton-pulse {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-secondary) 25%,
+    var(--color-bg-tertiary) 50%,
+    var(--color-bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-swipe 1.8s infinite linear;
+}
+
+/* Keyframes */
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+@keyframes shimmer-swipe {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Accessibility Outlines */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
+}
+
+/* Screen Reader Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
