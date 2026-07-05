@@ -6,11 +6,9 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section
-      className="relative overflow-visible select-none"
+      className="relative overflow-visible select-none pt-16 pb-12 sm:pt-20 sm:pb-16 lg:pt-20 lg:pb-24"
       style={{
         background: "radial-gradient(circle at 75% 35%, rgba(36, 107, 58, 0.04) 0%, #FAFAF8 65%)",
-        paddingTop: "5rem",
-        paddingBottom: "6rem",
       }}
       aria-label="Hero section"
     >
@@ -18,8 +16,8 @@ export default function Hero() {
       <div className="absolute top-1/4 right-[10%] w-[450px] h-[450px] rounded-full bg-[#246B3A]/4 blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-[25%] w-[320px] h-[320px] rounded-full bg-[#4ade80]/3 blur-[100px] pointer-events-none z-0" />
 
-      <div className="max-w-[1240px] mx-auto px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-[1240px] mx-auto px-6 sm:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
           {/* ══════════════ LEFT COLUMN (40%) ══════════════ */}
           <div className="lg:col-span-5 flex flex-col items-start text-left w-full z-10">
@@ -29,7 +27,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border mb-8"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border mb-6 lg:mb-8"
               style={{ borderColor: "rgba(36, 107, 58, 0.18)", background: "#FFFFFF" }}
             >
               <span className="w-2 h-2 rounded-full shrink-0" style={{ background: "#246B3A" }} />
@@ -43,8 +41,8 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="hero-title-dark font-display font-light tracking-tight leading-[1.08] mb-5 select-text"
-              style={{ fontSize: "clamp(2.8rem, 4.5vw, 4.2rem)" }}
+              className="hero-title-dark font-display font-light tracking-tight leading-[1.08] mb-4 lg:mb-5 select-text"
+              style={{ fontSize: "clamp(2rem, 7vw, 4.2rem)" }}
             >
               Building software<br />
               that drives<br />
@@ -56,7 +54,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              style={{ color: "#444", fontSize: "15px", lineHeight: "1.65", marginBottom: "2.25rem", maxWidth: "380px" }}
+              style={{ color: "#444", fontSize: "15px", lineHeight: "1.6", marginBottom: "1.75rem", maxWidth: "380px" }}
               className="select-text"
             >
               We design custom software, AI systems and automation solutions that help businesses grow faster.
@@ -67,11 +65,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-row items-center gap-3 mb-14"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10 lg:mb-14 w-full sm:w-auto"
             >
               <a
                 href="/book-consultation"
-                className="inline-flex items-center gap-2 group cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 group cursor-pointer text-center"
                 style={{
                   padding: "12px 24px",
                   borderRadius: "9999px",
@@ -89,7 +87,7 @@ export default function Hero() {
               </a>
               <a
                 href="/work"
-                className="inline-flex items-center gap-2 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer text-center"
                 style={{
                   padding: "12px 24px",
                   borderRadius: "9999px",
@@ -99,6 +97,7 @@ export default function Hero() {
                   fontWeight: 500,
                   fontSize: "14px",
                   textDecoration: "none",
+                  transition: "all 0.2s",
                 }}
               >
                 View Our Work
@@ -110,8 +109,8 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-x-6 gap-y-4"
-              style={{ borderTop: "1px solid #E4E4E0", paddingTop: "1.75rem", width: "100%" }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 w-full"
+              style={{ borderTop: "1px solid #E4E4E0", paddingTop: "1.5rem" }}
             >
               {[
                 { icon: Shield, label: "Trusted", sub: "by Businesses" },
@@ -122,8 +121,8 @@ export default function Hero() {
                 <div key={i} className="flex items-center gap-2.5">
                   <Icon size={15} style={{ color: "#246B3A", flexShrink: 0 }} />
                   <div>
-                    <span style={{ fontSize: "12px", fontWeight: 600, color: "#111", display: "block", lineHeight: 1.25 }}>{label}</span>
-                    <span style={{ fontSize: "11px", color: "#666", lineHeight: 1.25 }}>{sub}</span>
+                    <span style={{ fontSize: "11px", fontWeight: 600, color: "#111", display: "block", lineHeight: 1.25 }}>{label}</span>
+                    <span style={{ fontSize: "10px", color: "#666", display: "block", lineHeight: 1.25 }}>{sub}</span>
                   </div>
                 </div>
               ))}
@@ -131,7 +130,7 @@ export default function Hero() {
           </div>
 
           {/* ══════════════ RIGHT COLUMN — Visual Composition Collage (60%) ══════════════ */}
-          <div className="lg:col-span-7 relative w-full h-[320px] sm:h-[450px] lg:h-[620px] z-10 flex items-center justify-center overflow-hidden lg:overflow-visible">
+          <div className="lg:col-span-7 relative w-full max-w-[420px] lg:max-w-none mx-auto h-[240px] sm:h-[320px] lg:h-[620px] z-10 flex items-center justify-center overflow-hidden lg:overflow-visible">
             
             {/* Ambient vector lines in the background */}
             <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" fill="none">
@@ -156,7 +155,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-4 lg:top-5 lg:bottom-[30px] lg:left-10 lg:right-[15px] overflow-hidden"
+              className="absolute inset-2 sm:inset-4 lg:top-5 lg:bottom-[30px] lg:left-10 lg:right-[15px] overflow-hidden"
               style={{
                 borderTopLeftRadius: "300px",
                 borderBottomLeftRadius: "300px",

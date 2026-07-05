@@ -61,10 +61,10 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-bg-secondary/70 backdrop-blur-md border-b border-border-muted/80 py-3"
-            : "bg-transparent py-4.5"
+            : "bg-transparent py-4 sm:py-5"
         }`}
       >
-        <div className="w-full max-w-[1340px] mx-auto px-8 flex items-center justify-between">
+        <div className="w-full max-w-[1340px] mx-auto px-6 sm:px-8 flex items-center justify-between">
           {/* Desktop Left Side Links */}
           <div className="hidden md:flex items-center justify-start gap-12 lg:gap-14 w-[44%]">
             {/* Symmetrical Running Clocks */}
