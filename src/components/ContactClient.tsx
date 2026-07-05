@@ -142,8 +142,8 @@ export default function ContactClient() {
     },
     {
       label: "LinkedIn",
-      value: "in/bhanuworks",
-      href: "https://www.linkedin.com/in/bhanuworks/",
+      value: "company/bhanuworks",
+      href: "https://www.linkedin.com/company/bhanuworks/",
       svg: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
